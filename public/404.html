@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>World Bank Data Terminal</title>
+    <script>
+      // SPA redirect for GitHub Pages
+      // Preserves the path after the repo base so the SPA router can handle it
+      (function() {
+        var seg = window.location.pathname.split('/');
+        // For project pages like /repo-name/some-route, keep the first segment (repo name)
+        // and redirect query-encoded path so index.html can restore it
+        var baseSeg = 1; // account for leading slash
+        // If hosted at username.github.io/repo-name, the base is /repo-name/
+        if (seg.length > baseSeg + 1) {
+          var base = '/' + seg.slice(1, baseSeg + 1).join('/') + '/';
+          var route = '/' + seg.slice(baseSeg + 1).join('/');
+          window.location.replace(base + '?p=' + encodeURIComponent(route));
+        }
+      })();
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

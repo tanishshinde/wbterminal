@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 20% 4%;
+    --foreground: 210 20% 80%;
+
+    --card: 220 18% 7%;
+    --card-foreground: 210 20% 80%;
+
+    --popover: 220 18% 7%;
+    --popover-foreground: 210 20% 80%;
+
+    --primary: 142 70% 45%;
+    --primary-foreground: 220 20% 4%;
+
+    --secondary: 220 15% 13%;
+    --secondary-foreground: 210 20% 75%;
+
+    --muted: 220 15% 10%;
+    --muted-foreground: 215 15% 45%;
+
+    --accent: 45 90% 55%;
+    --accent-foreground: 220 20% 4%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 15%;
+    --input: 220 15% 15%;
+    --ring: 142 70% 45%;
+
+    --radius: 0.25rem;
+
+    --sidebar-background: 220 18% 5%;
+    --sidebar-foreground: 210 20% 70%;
+    --sidebar-primary: 142 70% 45%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 15% 10%;
+    --sidebar-accent-foreground: 210 20% 80%;
+    --sidebar-border: 220 15% 12%;
+    --sidebar-ring: 142 70% 45%;
+
+    /* Terminal-specific tokens */
+    --terminal-green: 142 70% 45%;
+    --terminal-amber: 45 90% 55%;
+    --terminal-cyan: 185 70% 50%;
+    --terminal-red: 0 70% 50%;
+    --terminal-blue: 210 70% 55%;
+    --terminal-magenta: 280 60% 55%;
+    --terminal-dim: 215 15% 35%;
+    --terminal-panel: 220 18% 6%;
+    --terminal-panel-border: 220 15% 12%;
+    --terminal-highlight: 220 15% 14%;
+  }
+
+  .dark {
+    --background: 220 20% 4%;
+    --foreground: 210 20% 80%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+
+@layer utilities {
+  .terminal-text-green {
+    color: hsl(var(--terminal-green));
+  }
+  .terminal-text-amber {
+    color: hsl(var(--terminal-amber));
+  }
+  .terminal-text-cyan {
+    color: hsl(var(--terminal-cyan));
+  }
+  .terminal-text-red {
+    color: hsl(var(--terminal-red));
+  }
+  .terminal-text-blue {
+    color: hsl(var(--terminal-blue));
+  }
+  .terminal-text-dim {
+    color: hsl(var(--terminal-dim));
+  }
+  .terminal-bg-panel {
+    background-color: hsl(var(--terminal-panel));
+  }
+  .terminal-border {
+    border-color: hsl(var(--terminal-panel-border));
+  }
+  .terminal-bg-highlight {
+    background-color: hsl(var(--terminal-highlight));
+  }
+}
+
+/* Ticker animation */
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  animation: ticker-scroll 60s linear infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(220 18% 5%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(220 15% 20%);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(220 15% 30%);
+}
+
+/* Sparkline container */
+.sparkline-container {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+}
